@@ -89,6 +89,10 @@ ul li a {
 	opacity: 0.5; 
 }
 
+.projects li a {
+	opacity: 0.8;
+}
+
 ul li a:hover { 
 	opacity: 1; 
 	-webkit-transition: all 0.2s ease-in-out; 
