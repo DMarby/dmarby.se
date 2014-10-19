@@ -79,7 +79,9 @@ ul {
 	display: block; 
 }
 ul li { 
-	display: inline-block; margin: 0 10px; 
+	display: inline-block; 
+	margin: 0 10px; 
+	margin-bottom: 10px;
 }
 ul li i {
 	font-size: 2em;
@@ -87,6 +89,11 @@ ul li i {
 ul li a { 
 	font-family: 'Roboto', 'helvetica neue', helvetica, arial, sans-serif; 
 	opacity: 0.5; 
+}
+
+.projects {
+	width: 300px;
+	margin: 0 auto;
 }
 
 .projects li a {
