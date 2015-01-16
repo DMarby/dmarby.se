@@ -66,6 +66,7 @@ p {
 	font-family: 'Roboto','helvetica neue', helvetica, arial, sans-serif; 
 	font-weight: 300;
 }
+
 p strong {
   font-weight: 500;
 }
@@ -78,14 +79,17 @@ a {
 ul { 
 	display: block; 
 }
+
 ul li { 
 	display: inline-block; 
 	margin: 0 10px; 
 	margin-bottom: 10px;
 }
+
 ul li i {
 	font-size: 2em;
 }
+
 ul li a { 
 	font-family: 'Roboto', 'helvetica neue', helvetica, arial, sans-serif; 
 	opacity: 0.5; 
