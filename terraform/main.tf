@@ -6,6 +6,11 @@ resource "digitalocean_tag" "dmarby" {
   name = "dmarby"
 }
 
+resource "digitalocean_ssh_key" "dmarby" {
+  name       = "DMarby"
+  public_key = "${file("~/.ssh/id_rsa.pub")}"
+}
+
 resource "digitalocean_droplet" "dmarby" {
   name               = "dmarby.se"
   size               = "1gb"
@@ -15,7 +20,7 @@ resource "digitalocean_droplet" "dmarby" {
   monitoring         = false
   private_networking = false
   backups            = false
-  ssh_keys           = ["${var.ssh_key_fingerprint}"]
+  ssh_keys           = ["${digitalocean_ssh_key.dmarby.fingerprint}"]
   tags               = ["${digitalocean_tag.dmarby.id}"]
   user_data          = "${file("files/cloud-config.yml")}"
 }

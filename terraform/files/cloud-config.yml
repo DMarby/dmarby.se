@@ -1,0 +1,10 @@
+#cloud-config
+
+coreos:
+  update:
+    reboot-strategy: reboot
+  units:
+    - name: etcd2.service
+      command: start
+    - name: fleet.service
+      command: start
