@@ -1,0 +1,104 @@
+version: "2"
+services:
+  nginx-proxy:
+    image: nginx:alpine
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - nginx_conf:/etc/nginx/conf.d:ro
+      - nginx_vhost:/etc/nginx/vhost.d:ro
+      - nginx_html:/usr/share/nginx/html:ro
+      - nginx_certs:/etc/nginx/certs:ro
+    networks:
+      - default
+      - nginx
+    restart: always
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
+
+  nginx-gen:
+    build: docker-gen
+    command: -notify-sighup nginx -watch -wait 5s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
+    restart: always
+    environment:
+      ENABLE_IPV6: "true"
+      DEFAULT_HOST: "dmarby.se"
+    volumes:
+      - nginx_conf:/etc/nginx/conf.d
+      - nginx_vhost:/etc/nginx/vhost.d:ro
+      - nginx_certs:/etc/nginx/certs:ro
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - nginx
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.docker_gen: "true"
+
+  nginx-letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    restart: always
+    environment:
+      DHPARAM_BITS: "4096"
+    volumes:
+      - nginx_vhost:/etc/nginx/vhost.d
+      - nginx_html:/usr/share/nginx/html
+      - nginx_certs:/etc/nginx/certs
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - default
+
+  dmarby:
+    build: dmarby.se
+    environment:
+      VIRTUAL_HOST: "dmarby.se,www.dmarby.se"
+      LETSENCRYPT_HOST: "dmarby.se,www.dmarby.se"
+      LETSENCRYPT_EMAIL: "david@dmarby.se"
+    networks:
+      - nginx
+    restart: always
+
+  harpia:
+    build: harpia.dmarby.se
+    environment:
+      VIRTUAL_HOST: harpia.dmarby.se
+      LETSENCRYPT_HOST: "harpia.dmarby.se"
+      LETSENCRYPT_EMAIL: "david@dmarby.se"
+    networks:
+      - nginx
+    restart: always
+
+  yokuso:
+    build: yokuso
+    environment:
+      BUCKET_REGION: ams3
+      ACCESS_KEY_ID: ${YOKUSO_ACCESS_KEY_ID}
+      SECRET_ACCESS_KEY: ${YOKUSO_SECRET_ACCESS_KEY}
+      BUCKET_ENDPOINT: dmarby.ams3.digitaloceanspaces.com
+      ROOT_REDIRECT: https://dmarby.se
+      CLIENT_ACCESS_KEY_ID: ${YOKUSO_CLIENT_ACCESS_KEY_ID}
+      CLIENT_SECRET_ACCESS_KEY: ${YOKUSO_CLIENT_SECRET_ACCESS_KEY}
+      CLIENT_BUCKET_ENDPOINT: dump.dmarby.se
+      VIRTUAL_HOST: dump.dmarby.se
+      LETSENCRYPT_HOST: "dump.dmarby.se"
+      LETSENCRYPT_EMAIL: "david@dmarby.se"
+    volumes:
+      - yokuso_cache:/var/cache/nginx
+    networks:
+      - nginx
+    restart: always
+
+networks:
+  default:
+    driver_opts:
+      com.docker.network.bridge.enable_icc: "false"
+  nginx:
+
+volumes:
+  nginx_conf:
+  nginx_vhost:
+  nginx_html:
+  nginx_certs:
+
+  yokuso_cache:
+
