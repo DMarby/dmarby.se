@@ -1,0 +1,8 @@
+#!/bin/sh
+
+ssh -fNT -L 2375:127.0.0.1:2375 core@dmarby.se
+
+export DOCKER_HOST=tcp://localhost:2375
+docker-compose --project-name dmarby up -d --build --remove-orphans $@
+
+pgrep -f "ssh -fNT -L 2375:127.0.0.1:2375 core@dmarby.se" | xargs kill
