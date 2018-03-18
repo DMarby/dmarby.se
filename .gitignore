@@ -1,3 +1,4 @@
-old
-dump
-robots.txt
+.terraform
+terraform.tfvars
+terraform.tf
+.env

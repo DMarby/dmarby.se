@@ -72,8 +72,8 @@ services:
     build: yokuso
     environment:
       BUCKET_REGION: ams3
-      ACCESS_KEY_ID: ${YOKUSO_ACCESS_KEY_ID}
-      SECRET_ACCESS_KEY: ${YOKUSO_SECRET_ACCESS_KEY}
+      ACCESS_KEY_ID: ${SPACES_ACCESS_KEY_ID}
+      SECRET_ACCESS_KEY: ${SPACES_SECRET_ACCESS_KEY}
       BUCKET_ENDPOINT: dmarby.ams3.digitaloceanspaces.com
       ROOT_REDIRECT: https://dmarby.se
       CLIENT_ACCESS_KEY_ID: ${YOKUSO_CLIENT_ACCESS_KEY_ID}
@@ -86,6 +86,34 @@ services:
       - yokuso_cache:/var/cache/nginx
     networks:
       - nginx
+    restart: always
+
+  klein:
+    build: klein
+    environment:
+      KLEIN_STORAGE: spaces
+      KLEIN_STORAGE_SPACES_REGION: ams3
+      KLEIN_STORAGE_SPACES_ACCESS_KEY: ${SPACES_ACCESS_KEY_ID}
+      KLEIN_STORAGE_SPACES_SECRET_KEY: ${SPACES_SECRET_ACCESS_KEY}
+      KLEIN_STORAGE_SPACES_SPACE: dmarby
+      KLEIN_STORAGE_SPACES_PATH: klein.json
+      KLEIN_AUTH: key
+      KLEIN_AUTH_KEY: ${KLEIN_API_KEY}
+      KLEIN_ALIAS: alphanumeric
+      KLEIN_ALIAS_ALPHANUMERIC_LENGTH: 8
+      KLEIN_ALIAS_ALPHANUMERIC_ALPHA: "true"
+      KLEIN_ALIAS_ALPHANUMERIC_NUM: "true"
+      KLEIN_TEMPLATE: "404.html"
+      KLEIN_LISTEN: "0.0.0.0:5556"
+      KLEIN_URL: "https://dmar.by"
+      KLEIN_ROOT: "https://dmarby.se"
+      VIRTUAL_HOST: dmar.by
+      LETSENCRYPT_HOST: "dmar.by"
+      LETSENCRYPT_EMAIL: "david@dmarby.se"
+    networks:
+      - nginx
+    expose:
+      - "5556"
     restart: always
 
 networks:
