@@ -71,14 +71,13 @@ services:
   yokuso:
     build: yokuso
     environment:
-      BUCKET_REGION: ams3
       ACCESS_KEY_ID: ${SPACES_ACCESS_KEY_ID}
       SECRET_ACCESS_KEY: ${SPACES_SECRET_ACCESS_KEY}
-      BUCKET_ENDPOINT: dmarby.ams3.digitaloceanspaces.com
+      SPACES_REGION: ams3
+      SPACES_ENDPOINT: dmarby.ams3.digitaloceanspaces.com
       ROOT_REDIRECT: https://dmarby.se
       CLIENT_ACCESS_KEY_ID: ${YOKUSO_CLIENT_ACCESS_KEY_ID}
       CLIENT_SECRET_ACCESS_KEY: ${YOKUSO_CLIENT_SECRET_ACCESS_KEY}
-      CLIENT_BUCKET_ENDPOINT: dump.dmarby.se
       VIRTUAL_HOST: dump.dmarby.se
       LETSENCRYPT_HOST: "dump.dmarby.se"
       LETSENCRYPT_EMAIL: "david@dmarby.se"
