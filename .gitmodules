@@ -3,4 +3,4 @@
 	url = git@github.com:DMarby/yokuso.git
 [submodule "klein"]
 	path = klein
-	url = git@github.com:DMarby/klein.git
+	url = git@github.com:kamaln7/klein.git
