@@ -4,10 +4,6 @@ coreos:
   update:
     reboot-strategy: reboot
   units:
-    - name: etcd2.service
-      command: start
-    - name: fleet.service
-      command: start
     - name: docker-tcp.socket
       command: start
       enable: true
