@@ -13,7 +13,7 @@ resource "digitalocean_ssh_key" "dmarby" {
 
 resource "digitalocean_droplet" "dmarby" {
   name               = "dmarby.se"
-  size               = "1gb"
+  size               = "s-1vcpu-1gb"
   image              = "coreos-stable"
   region             = "ams3"
   ipv6               = true
