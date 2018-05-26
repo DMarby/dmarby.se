@@ -8,8 +8,10 @@ coreos:
       command: start
       enable: true
       content: |
-        [Unit]
+       [Unit]
         Description=Docker Socket for the API
+        Before=docker.service
+        Requires=docker.service
 
         [Socket]
         ListenStream=127.0.0.1:2375
