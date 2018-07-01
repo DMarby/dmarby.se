@@ -12,6 +12,29 @@ resource "digitalocean_record" "dmar_by_aaaa" {
   ttl    = 60
 }
 
+# CAA records
+resource "digitalocean_record" "dmar_by_caa_issue" {
+  domain = "${digitalocean_domain.dmar_by.name}"
+
+  name  = "@"
+  type  = "CAA"
+  value = "letsencrypt.org."
+  flags = 128
+  tag   = "issue"
+  ttl   = 60
+}
+
+resource "digitalocean_record" "dmar_by_caa_iodef" {
+  domain = "${digitalocean_domain.dmar_by.name}"
+
+  name  = "@"
+  type  = "CAA"
+  value = "mailto:david@dmarby.se."
+  flags = 128
+  tag   = "iodef"
+  ttl   = 60
+}
+
 # dmarby.se domain configuration
 resource "digitalocean_domain" "dmarby" {
   name = "dmarby.se"
@@ -25,6 +48,30 @@ resource "digitalocean_record" "dmarby_aaaa" {
   name   = "@"
   value  = "${digitalocean_droplet.dmarby.ipv6_address}"
   ttl    = 60
+}
+
+# CAA records
+
+resource "digitalocean_record" "dmarby_caa_issue" {
+  domain = "${digitalocean_domain.dmarby.name}"
+
+  name  = "@"
+  type  = "CAA"
+  value = "letsencrypt.org."
+  flags = 128
+  tag   = "issue"
+  ttl   = 60
+}
+
+resource "digitalocean_record" "dmarby_caa_iodef" {
+  domain = "${digitalocean_domain.dmarby.name}"
+
+  name  = "@"
+  type  = "CAA"
+  value = "mailto:david@dmarby.se."
+  flags = 128
+  tag   = "iodef"
+  ttl   = 60
 }
 
 # CNAME records for subdomains
