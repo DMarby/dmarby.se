@@ -1,0 +1,13 @@
+/*!
+  Shoelace.css
+  (c) A Beautiful Site, LLC
+
+  Released under the MIT license
+  Source: https://github.com/claviska/shoelace-css
+*/
+
+@import url('../../node_modules/shoelace-css/source/css/normalize.css');
+@import url('../../node_modules/shoelace-css/source/css/content.css');
+@import url('../../node_modules/shoelace-css/source/css/grid.css');
+@import url('../../node_modules/shoelace-css/source/css/utilities.css');
+@import url('../../node_modules/shoelace-css/source/css/variables.css');

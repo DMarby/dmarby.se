@@ -1,0 +1,31 @@
+@import url("./fonts.css");
+
+:root {
+  --font-family: "Helvetica Neue LT W05 55 Roman";
+  --headings-font-family: "Helvetica Neue LT W05 65 Medium";
+  --headings-font-size-h1: 4rem;
+  --headings-font-size-h2: 1.75rem;
+  --font-size: 1.25rem;
+  --link-color: #000;
+  --line-height: 1.6em;
+  --spacing-xl: 4rem;
+}
+
+h1 {
+  font-family: "Helvetica Neue LT W01_75 Bold";
+}
+
+.text-bold {
+  font-family: "Helvetica Neue LT W05 65 Medium";
+}
+
+.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+
+  & > .col,
+  & > [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
