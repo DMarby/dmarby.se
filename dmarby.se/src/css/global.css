@@ -8,8 +8,6 @@
   --font-size: 1.25rem;
   --link-color: #000;
   --line-height: 1.7em;
-  --spacing-xl: 10rem;
-  --spacing-lg: 5rem;
 }
 
 h1 {
@@ -28,5 +26,17 @@ h1 {
   & > [class*="col-"] {
     padding-left: 0;
     padding-right: 0;
+  }
+}
+
+@custom-media --breakpoint-lg-up only screen and (min-width: 992px);
+
+@media (--breakpoint-lg-up) {
+  .post-padding {
+    padding-left: 10rem !important;
+    padding-right: 10rem !important;
+
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
   }
 }

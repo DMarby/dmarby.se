@@ -2,7 +2,7 @@
   <Wrap :page="page">
     <div class="container">
       <div class="row">
-        <div class="col pad-y-lg pad-x-xl">
+        <div class="col post-padding">
           <slot name="default"/>
 
           <div class="text-center list">
