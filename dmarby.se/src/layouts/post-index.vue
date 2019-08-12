@@ -8,7 +8,7 @@
           <div class="text-center list">
             <p class="text-bold" v-for="post in page.posts" :key="post.permalink">
               <saber-link :to="post.permalink">{{ post.title }}</saber-link>
-              <time :datetime="dateTime(page.createdAt)">{{ formatDate(page.createdAt) }}</time>
+              <time :datetime="dateTime(post.createdAt)">{{ formatDate(post.createdAt) }}</time>
             </p>
           </div>
 
