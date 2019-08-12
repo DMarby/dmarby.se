@@ -1,0 +1,22 @@
+{
+  "name": "dmarby.se",
+  "private": true,
+  "dependencies": {
+    "shoelace-css": "^1.0.0-beta24"
+  },
+  "devDependencies": {
+    "markdown-it-attrs": "^3.0.0",
+    "nprogress": "^0.2.0",
+    "postcss-import": "^12.0.1",
+    "postcss-preset-env": "^6.7.0",
+    "saber": "^0.7.0",
+    "saber-plugin-feed": "^0.4.0",
+    "saber-plugin-image": "^0.1.0",
+    "saber-plugin-medium-zoom": "^0.2.0",
+    "saber-plugin-query-posts": "^0.4.0"
+  },
+  "scripts": {
+    "build": "saber build",
+    "watch": "saber"
+  }
+}
