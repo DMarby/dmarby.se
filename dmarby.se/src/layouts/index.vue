@@ -38,11 +38,15 @@ export default {
   justify-content: center;
 }
 
-@custom-media --breakpoint-lg-down only screen and (max-width: 1199px);
-@media (--breakpoint-lg-down) {
+.content {
+  padding-right: 5vh !important;
+  padding-left: 5vh !important;
+}
+
+@custom-media --breakpoint-sm-down only screen and (max-width: 767px);
+@media (--breakpoint-sm-down) {
   .content {
-    padding-right: 5vh !important;
-    padding-left: 5vh !important;
+    margin-bottom: 10vh;
   }
 }
 

@@ -69,7 +69,7 @@ h4 {
 }
 
 .blog {
-  margin-top: 12vh;
+  margin-top: 8vh;
 }
 
 .links {
