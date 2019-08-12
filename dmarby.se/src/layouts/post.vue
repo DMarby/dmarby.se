@@ -2,7 +2,7 @@
   <Wrap :page="page">
     <div class="container">
       <div class="row">
-        <div class="col pad-xl">
+        <div class="col pad-y-lg pad-x-xl">
           <div class="text-center title">
             <h1>{{ page.title }}</h1>
             <time class="text-bold" :datetime="dateTime(page.createdAt)">{{ formatDate(page.createdAt) }}</time>

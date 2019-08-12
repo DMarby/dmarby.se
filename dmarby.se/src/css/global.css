@@ -7,8 +7,9 @@
   --headings-font-size-h2: 1.75rem;
   --font-size: 1.25rem;
   --link-color: #000;
-  --line-height: 1.6em;
-  --spacing-xl: 4rem;
+  --line-height: 1.7em;
+  --spacing-xl: 10rem;
+  --spacing-lg: 5rem;
 }
 
 h1 {
