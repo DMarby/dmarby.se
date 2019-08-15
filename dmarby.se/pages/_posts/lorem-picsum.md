@@ -23,7 +23,7 @@ While we allow the use of Lorem Picsum for pretty much anything, when someone ha
 ## Architecture
 <br/>
 
-![img](../../images/lorem-ipsum-architecture.svg){ data-zoomable }
+![img](../../images/lorem-ipsum-architecture.svg){.zoomable}
 
 Lorem Picsum is designed to be stateless, and runs on top of [Kubernetes](https://kubernetes.io/). The overall system consists of a few different components, as can be seen in the diagram above.
 

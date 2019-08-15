@@ -22,13 +22,14 @@ module.exports = {
           1000,
           800,
           500,
-        ]
+        ],
+        markdownImages: false // Disable to fix rss feeds
       }
     },
     {
       resolve: 'saber-plugin-medium-zoom',
       options: {
-        selector: '[data-zoomable]'
+        selector: '.zoomable'
       }
     },
     {
