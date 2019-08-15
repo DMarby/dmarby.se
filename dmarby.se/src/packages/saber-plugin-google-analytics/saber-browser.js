@@ -1,5 +1,3 @@
-// https://github.com/saberland/saber/tree/master/packages/saber-plugin-google-analytics
-
 /* eslint-disable */
 // Google analytics integration for Vue.js renderer
 export default function({ router }) {
@@ -25,14 +23,25 @@ export default function({ router }) {
     }
 
     // prettier-ignore
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ;(function(i, s, o, g, r, a, m) {
+      i.GoogleAnalyticsObject = r
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }
+      i[r].l = Number(new Date())
+      a = s.createElement(o)
+      m = s.getElementsByTagName(o)[0]
+      a.async = 1
+      a.src = g
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga')
 
     ga('create', __GA_TRACK_ID__, 'auto')
-    ga('set', 'anonymizeIp', true)
     ga('send', 'pageview')
+
+    if (__GA_ANONYMIZE_IP) {
+      ga('set', 'anonymizeIp', true)
+    }
 
     router.afterEach(to => {
       ga('set', 'page', to.fullPath)

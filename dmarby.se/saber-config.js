@@ -5,7 +5,8 @@ module.exports = {
     lang: 'en',
     // Used for the rss feed
     author: 'David Marby',
-    url: 'https://dmarby.se'
+    url: 'https://dmarby.se/',
+    email: 'david@dmarby.se',
   },
   theme: './src',
   permalinks: {
@@ -32,7 +33,10 @@ module.exports = {
     },
     {
       resolve: './src/packages/saber-plugin-google-analytics',
-      options: { trackId: 'UA-29191316-1' }
+      options: {
+        trackId: 'UA-29191316-1',
+        anonymizeIp: true,
+      }
     },
     {
       resolve: 'saber-plugin-query-posts',
@@ -41,7 +45,7 @@ module.exports = {
       }
     },
     {
-      resolve: 'saber-plugin-feed',
+      resolve: './src/packages/saber-plugin-feed',
       options: {
         atomFeed: 'blog/atom.xml'
       }
