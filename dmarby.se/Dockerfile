@@ -1,7 +1,7 @@
 FROM node:10.16.2-alpine as nodebuilder
 WORKDIR /build
 COPY . .
-RUN npm install && npm run-script build
+RUN npm ci && npm run-script build
 
 FROM nginx:alpine
 COPY nginx.conf /etc/nginx/conf.d/default.conf

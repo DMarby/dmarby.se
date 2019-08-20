@@ -33,7 +33,7 @@ module.exports = {
       }
     },
     {
-      resolve: './src/packages/saber-plugin-google-analytics',
+      resolve: 'saber-plugin-google-analytics',
       options: {
         trackId: 'UA-29191316-1',
         anonymizeIp: true,
@@ -46,7 +46,7 @@ module.exports = {
       }
     },
     {
-      resolve: './src/packages/saber-plugin-feed',
+      resolve: 'saber-plugin-feed',
       options: {
         atomFeed: 'blog/atom.xml'
       }
