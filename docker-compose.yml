@@ -58,16 +58,6 @@ services:
       - nginx
     restart: always
 
-  harpia:
-    build: harpia.dmarby.se
-    environment:
-      VIRTUAL_HOST: harpia.dmarby.se
-      LETSENCRYPT_HOST: "harpia.dmarby.se"
-      LETSENCRYPT_EMAIL: "david@dmarby.se"
-    networks:
-      - nginx
-    restart: always
-
   yokuso:
     build: yokuso
     environment:

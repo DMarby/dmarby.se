@@ -91,14 +91,6 @@ resource "digitalocean_record" "dmarby_dump" {
   ttl    = 60
 }
 
-resource "digitalocean_record" "dmarby_harpia" {
-  domain = "${digitalocean_domain.dmarby.name}"
-  type   = "CNAME"
-  name   = "harpia"
-  value  = "dmarby.se."
-  ttl    = 60
-}
-
 # CNAME records for Google Suite
 resource "digitalocean_record" "dmarby_mail" {
   domain = "${digitalocean_domain.dmarby.name}"
