@@ -1,7 +1,8 @@
+/* fonts.com tracking is included in saber-browser.js and mtiFontTrackingCode.js */
+
 /*
 This CSS resource incorporates links to font software which is the valuable copyrighted property of Monotype and/or its suppliers. You may not attempt to copy, install, redistribute, convert, modify or reverse engineer this font software. Please contact Monotype with any questions regarding Web Fonts: http://www.fonts.com
 */
-@import url("https://fast.fonts.net/lt/1.css?apiType=css&c=ee4cd7fe-0ef1-425d-8883-1d95ca9b0a41&fontids=5664093,5664103,5664149");
 @font-face {
   font-family: "Helvetica Neue LT W05 55 Roman";
   src: url("../fonts/5664093/522972a6-5867-47ae-82fc-a7cf9bd5d4d4.eot?#iefix");

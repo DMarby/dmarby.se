@@ -56,4 +56,18 @@ export default ({ router }) => {
     // Stop progress bar after entering page
     progressStop()
   })
+
+  // fonts.com tracking
+  if (process.env.NODE_ENV === 'production') {
+    router.afterEach(to => {
+      (function() {
+        var mtTracking = document.createElement('script');
+        mtTracking.type='text/javascript';
+        mtTracking.async='true';
+        mtTracking.src='/mtiFontTrackingCode.js';
+
+        (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(mtTracking);
+      })();
+    })
+  }
 }
