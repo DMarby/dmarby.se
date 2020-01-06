@@ -24,7 +24,6 @@ services:
     restart: always
     environment:
       ENABLE_IPV6: "true"
-      DEFAULT_HOST: "dmarby.se"
     volumes:
       - nginx_conf:/etc/nginx/conf.d
       - nginx_vhost:/etc/nginx/vhost.d:ro

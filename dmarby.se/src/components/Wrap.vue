@@ -48,7 +48,7 @@ export default {
         },
         {
           property: 'og:url',
-          content: this.$siteConfig.url
+          content: this.page.attributes.absoluteURL
         },
         {
           name: 'robots',
@@ -68,6 +68,10 @@ export default {
                   : 'json'
               }`,
               href: this.$feed.permalink
+            },
+            {
+              rel: 'canonical',
+              href: this.page.attributes.absoluteURL
             }
           ].filter(Boolean)
         : []

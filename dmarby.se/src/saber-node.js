@@ -1,4 +1,6 @@
-exports.onCreatePages = function() {
+const { URL } = require('url')
+
+exports.onCreatePages = function () {
   // Pages are read into the `this.pages` Map
   // Sort posts by createdAt (date) from new to old
   const posts = [...this.pages.values()]
@@ -12,5 +14,9 @@ exports.onCreatePages = function() {
   for (const [index, post] of posts.entries()) {
     post.prevPost = selectFields(posts[index - 1])
     post.nextPost = selectFields(posts[index + 1])
+  }
+
+  for (const page of this.pages.values()) {
+    page.absoluteURL = new URL(page.permalink, this.config.siteConfig.url).href
   }
 }
