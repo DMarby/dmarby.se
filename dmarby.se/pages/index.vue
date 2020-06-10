@@ -3,7 +3,6 @@
     <h1>David Marby</h1>
     <div class="subtitle">
       <h2>Full-Stack Engineer</h2>
-      <h2>Infrastructure Lead at <a href="https://mullvad.net">Mullvad</a></h2>
     </div>
 
     <div class="row no-gutter blog">
